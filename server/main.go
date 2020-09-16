@@ -2,18 +2,17 @@ package main
 
 import (
 	"context"
+	"hello_grpc/pb"
 	"log"
 	"net"
-
-	"vitimm144/hello_grpc/pb"
 
 	"google.golang.org/grpc"
 )
 
 type server struct{}
 
-func (*server) Hello (ctx context.Context, request *.pb.HelloRequest) (*pb.HelloResponse, error){
-	result := "Hello "+request.GetName()
+func (*server) Hello(ctx context.Context, request *pb.HelloRequest) (*pb.HelloResponse, error) {
+	result := "Hello " + request.GetName()
 	res := &pb.HelloResponse{
 		Msg: result,
 	}
